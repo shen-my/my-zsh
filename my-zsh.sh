@@ -1,3 +1,3 @@
-source $MY_ZSH/configs
-source $MY_ZSH/aliases
-source $MY_ZSH/udf
+source $MY_ZSH/configs.sh
+source $MY_ZSH/aliases.sh
+source $MY_ZSH/udf.sh

@@ -1,6 +1,0 @@
-c() {
-    cd $@
-    if [ $? -eq 0 ]; then
-        l
-    fi
-}
