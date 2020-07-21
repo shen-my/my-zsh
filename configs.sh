@@ -3,8 +3,10 @@
 
 typeset +H _current_dir="%{$fg_bold[blue]%}%~%{$reset_color%} "
 
-PROMPT='$(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
+PROMPT='$(_user_host)${_current_dir}
 %{%(!.%F{red}.%F{white})%}▶%{$reset_color%} '
+
+RPROMPT='${_return_status}'
 
 LS_COLORS='tw=30:ow=34:'
 export LS_COLORS
