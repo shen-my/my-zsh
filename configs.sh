@@ -1,8 +1,6 @@
 # export PS1='\[\e[35m\]\w\[\e[0m\]
 # \$ '
 
-RPROMPT='${_return_status}'
-
 LS_COLORS='tw=30:ow=34:'
 export LS_COLORS
 
