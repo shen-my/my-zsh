@@ -1,6 +1,6 @@
 alias ls='ls --color'
 alias l='ls -lLhXB --time-style=+"%Y-%m-%d %T"'
-alias ll='ls -alX --time-style=+"%Y-%m-%d %T"'
+alias ll='ls -alh --time-style=+"%Y-%m-%d %T"'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias used='du * -sBM | sort -nr | head'
