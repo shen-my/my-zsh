@@ -1,8 +1,7 @@
-# export PS1='\[\e[35m\]\w\[\e[0m\]
-# \$ '
+export PROMPT='%{$GREEN_BOLD%}%n@%m%{$WHITE%}:%{$YELLOW%}%~%u%{$RESET_COLOR%}
+%{$BLUE%}>%{$RESET_COLOR%} '
 
-LS_COLORS='tw=30:ow=34:'
-export LS_COLORS
+unset RPROMPT
 
 export GIT_EDITOR=vim
 
