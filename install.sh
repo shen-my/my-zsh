@@ -1,4 +1,4 @@
-git clone git@github.com:shen-my/my-zsh.git ~/.my-zsh
+git clone --depth 1 git@github.com:shen-my/my-zsh.git ~/.my-zsh
 
 sed -i -e 's/^ZSH_THEME=.*/ZSH_THEME="juanghurtado"/g' ~/.zshrc
 

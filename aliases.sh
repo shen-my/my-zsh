@@ -34,3 +34,5 @@ alias dcpclean='docker-compose down --rmi all'
 alias de='docker exec'
 alias dk='docker kill'
 alias deit='docker exec -it'
+
+alias k='kubectl'
