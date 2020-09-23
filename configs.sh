@@ -7,3 +7,6 @@ export GIT_EDITOR=vim
 
 ulimit -c unlimited
 umask 022
+
+setopt noincappendhistory
+setopt nosharehistory
