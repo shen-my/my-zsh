@@ -28,6 +28,7 @@ alias dps='docker ps --format "table {{.ID}}    {{.Names}}\t{{.Ports}}\t{{.Image
 alias dpsa='dps -a'
 alias dpsexited='dps -f status=exited'
 alias dr='docker run'
+alias dronece='docker run -it --rm'
 alias dcp='docker-compose'
 alias dcpclean='docker-compose down --rmi all'
 alias de='docker exec'
