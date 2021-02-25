@@ -42,3 +42,7 @@ prune_branch() {
     git branch -r --merged | sed 's/origin\///' | xargs git push --delete origin
     git remote prune origin
 }
+
+dirm_all_tags() {
+    docker rmi $(docker images $1 --format "{{.Repository}}:{{.Tag}}")
+}
