@@ -48,26 +48,27 @@ dirm_all_tags() {
 }
 
 expose_docker_port() {
-    if [ $# -lt 2 ]; then
+    if [ $# -lt 3 ]; then
         >&2 echo "
         Usage:
-        expose_docker_port {container_name} {container_port}    # local_port=container_port
-        expose_docker_port {container_name} {container_port} {local_port}
+        expose_docker_port {network} {container_host} {container_port}    # local_port=container_port
+        expose_docker_port {network} {container_host} {container_port} {local_port}
+        ps: default network is "bridge"
         "
         return 1
     fi
-    container_name=$1
-    container_port=$2
-    if [ $# -eq 3 ]; then
-        local_port=$3
+    network=$1
+    container_host=$2
+    container_port=$3
+    if [ $# -eq 4 ]; then
+        local_port=$4
     else
-        local_port=$2
+        local_port=$3
     fi
 
-    set -x
     docker run -it --rm \
         -p $local_port:1234 \
-        --link $container_name \
+        --network $network \
         alpine/socat \
-        tcp-listen:1234,fork,reuseaddr tcp-connect:$container_name:$container_port
+        tcp-listen:1234,fork,reuseaddr tcp-connect:$container_host:$container_port
 }
