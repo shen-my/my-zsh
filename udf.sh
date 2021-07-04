@@ -46,3 +46,28 @@ prune_branch() {
 dirm_all_tags() {
     docker rmi $(docker images $1 --format "{{.Repository}}:{{.Tag}}")
 }
+
+expose_docker_port() {
+    if [ $# -lt 2 ]; then
+        >&2 echo "
+        Usage:
+        expose_docker_port {container_name} {container_port}    # local_port=container_port
+        expose_docker_port {container_name} {container_port} {local_port}
+        "
+        return 1
+    fi
+    container_name=$1
+    container_port=$2
+    if [ $# -eq 3 ]; then
+        local_port=$3
+    else
+        local_port=$2
+    fi
+
+    set -x
+    docker run -it --rm \
+        -p $local_port:1234 \
+        --link $container_name \
+        alpine/socat \
+        tcp-listen:1234,fork,reuseaddr tcp-connect:$container_name:$container_port
+}
